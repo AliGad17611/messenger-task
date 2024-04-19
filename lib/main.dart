@@ -68,864 +68,158 @@ class MessengerTask extends StatelessWidget {
           backgroundColor: Colors.white,
           elevation: 0,
         ),
-        body: Column(children: [
-          Container(
-            margin: EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              color: Colors.grey[400],
-              borderRadius: BorderRadius.circular(30),
+        body: SingleChildScrollView(
+          child: Column(children: [
+            Container(
+              margin: EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                color: Colors.grey[400],
+                borderRadius: BorderRadius.circular(30),
+              ),
+              child: TextField(
+                  style: TextStyle(fontSize: 20, color: Colors.grey[800]),
+                  decoration: InputDecoration(
+                    prefixIcon:
+                        Icon(Icons.search, color: Colors.grey[800], size: 30),
+                    hintText: "Search",
+                    hintStyle: TextStyle(color: Colors.grey[800], fontSize: 20),
+                    border: InputBorder.none,
+                  )),
             ),
-            child: TextField(
-                style: TextStyle(fontSize: 20, color: Colors.grey[800]),
-                decoration: InputDecoration(
-                  prefixIcon:
-                      Icon(Icons.search, color: Colors.grey[800], size: 30),
-                  hintText: "Search",
-                  hintStyle: TextStyle(color: Colors.grey[800], fontSize: 20),
-                  border: InputBorder.none,
-                )),
+            SizedBox(
+              height: 15,
+            ),
+            Container(
+              height: 120,
+              margin: EdgeInsetsDirectional.only(start: 10, end: 10),
+              child: ListView.separated(
+                  shrinkWrap: true,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) => buildStoryItem(),
+                  separatorBuilder: (context, index) => SizedBox(
+                        width: 15,
+                      ),
+                  itemCount: 7),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            ListView.separated(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                itemBuilder: (context, item) => buildChatItem(),
+                separatorBuilder: (context, item) => SizedBox(
+                      height: 5,
+                    ),
+                itemCount: 15)
+          ]),
+        ));
+  }
+
+  Widget buildChatItem() => Container(
+        margin: EdgeInsetsDirectional.only(start: 10, end: 5),
+        child: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
+          Stack(
+            alignment: AlignmentDirectional.bottomEnd,
+            children: [
+              CircleAvatar(
+                backgroundImage: AssetImage("assets/images/w2.jpg"),
+                radius: 40,
+              ),
+              Padding(
+                padding: const EdgeInsetsDirectional.only(
+                  end: 5,
+                  bottom: 5,
+                ),
+                child: CircleAvatar(
+                  radius: 8,
+                  backgroundColor: Colors.green,
+                ),
+              ),
+            ],
           ),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(children: [
-              Container(
-                  margin: EdgeInsets.symmetric(vertical: 10, horizontal: 4),
-                  width: 90,
-                  child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Stack(
-                            alignment: AlignmentDirectional.bottomEnd,
-                            children: [
-                              CircleAvatar(
-                                backgroundImage:
-                                    AssetImage("assets/images/w2.jpg"),
-                                radius: 40,
-                              ),
-                              Padding(
-                                padding: const EdgeInsetsDirectional.only(
-                                  end: 5,
-                                  bottom: 5,
-                                ),
-                                child: CircleAvatar(
-                                  radius: 8,
-                                  backgroundColor: Colors.green,
-                                ),
-                              ),
-                            ],
-                          ),
-                        Text("not real preson",
-                            textAlign: TextAlign.center,
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 20,
-                            ))
-                      ])),
-              Container(
-                  margin: EdgeInsets.symmetric(vertical: 10, horizontal: 4),
-                  width: 90,
-                  child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Stack(
-                            alignment: AlignmentDirectional.bottomEnd,
-                            children: [
-                              CircleAvatar(
-                                backgroundImage:
-                                    AssetImage("assets/images/w2.jpg"),
-                                radius: 40,
-                              ),
-                              Padding(
-                                padding: const EdgeInsetsDirectional.only(
-                                  end: 5,
-                                  bottom: 5,
-                                ),
-                                child: CircleAvatar(
-                                  radius: 8,
-                                  backgroundColor: Colors.green,
-                                ),
-                              ),
-                            ],
-                          ),
-                        Text("not real preson",
-                            textAlign: TextAlign.center,
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 20,
-                            ))
-                      ])),Container(
-                  margin: EdgeInsets.symmetric(vertical: 10, horizontal: 4),
-                  width: 90,
-                  child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Stack(
-                            alignment: AlignmentDirectional.bottomEnd,
-                            children: [
-                              CircleAvatar(
-                                backgroundImage:
-                                    AssetImage("assets/images/w2.jpg"),
-                                radius: 40,
-                              ),
-                              Padding(
-                                padding: const EdgeInsetsDirectional.only(
-                                  end: 5,
-                                  bottom: 5,
-                                ),
-                                child: CircleAvatar(
-                                  radius: 8,
-                                  backgroundColor: Colors.green,
-                                ),
-                              ),
-                            ],
-                          ),
-                        Text("not real preson",
-                            textAlign: TextAlign.center,
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 20,
-                            ))
-                      ])),Container(
-                  margin: EdgeInsets.symmetric(vertical: 10, horizontal: 4),
-                  width: 90,
-                  child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Stack(
-                            alignment: AlignmentDirectional.bottomEnd,
-                            children: [
-                              CircleAvatar(
-                                backgroundImage:
-                                    AssetImage("assets/images/w2.jpg"),
-                                radius: 40,
-                              ),
-                              Padding(
-                                padding: const EdgeInsetsDirectional.only(
-                                  end: 5,
-                                  bottom: 5,
-                                ),
-                                child: CircleAvatar(
-                                  radius: 8,
-                                  backgroundColor: Colors.green,
-                                ),
-                              ),
-                            ],
-                          ),
-                        Text("not real preson",
-                            textAlign: TextAlign.center,
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 20,
-                            ))
-                      ])),Container(
-                  margin: EdgeInsets.symmetric(vertical: 10, horizontal: 4),
-                  width: 90,
-                  child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Stack(
-                            alignment: AlignmentDirectional.bottomEnd,
-                            children: [
-                              CircleAvatar(
-                                backgroundImage:
-                                    AssetImage("assets/images/w2.jpg"),
-                                radius: 40,
-                              ),
-                              Padding(
-                                padding: const EdgeInsetsDirectional.only(
-                                  end: 5,
-                                  bottom: 5,
-                                ),
-                                child: CircleAvatar(
-                                  radius: 8,
-                                  backgroundColor: Colors.green,
-                                ),
-                              ),
-                            ],
-                          ),
-                        Text("not real preson",
-                            textAlign: TextAlign.center,
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 20,
-                            ))
-                      ])),Container(
-                  margin: EdgeInsets.symmetric(vertical: 10, horizontal: 4),
-                  width: 90,
-                  child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Stack(
-                            alignment: AlignmentDirectional.bottomEnd,
-                            children: [
-                              CircleAvatar(
-                                backgroundImage:
-                                    AssetImage("assets/images/w2.jpg"),
-                                radius: 40,
-                              ),
-                              Padding(
-                                padding: const EdgeInsetsDirectional.only(
-                                  end: 5,
-                                  bottom: 5,
-                                ),
-                                child: CircleAvatar(
-                                  radius: 8,
-                                  backgroundColor: Colors.green,
-                                ),
-                              ),
-                            ],
-                          ),
-                        Text("not real preson",
-                            textAlign: TextAlign.center,
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 20,
-                            ))
-                      ])),
+          SizedBox(width: 10),
+          SizedBox(
+            height: 90,
+            child:
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Row(
+                children: [
+                  Text(
+                    "not real preson",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 27,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(width: 5),
+                  Icon(
+                    Icons.circle,
+                    color: Colors.blue,
+                    size: 15,
+                  ),
+                ],
+              ),
+              SizedBox(
+                width: 210,
+                child: Text(
+                  "please send me a message, im not very active",
+                  softWrap: true,
+                  style: TextStyle(color: Colors.grey, fontSize: 16),
+                ),
+              )
             ]),
           ),
-          Expanded(
-            child: SingleChildScrollView(
-                scrollDirection: Axis.vertical,
-                child: Column(children: [
-                  Container(
-                    margin: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                    child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Stack(
-                            alignment: AlignmentDirectional.bottomEnd,
-                            children: [
-                              CircleAvatar(
-                                backgroundImage:
-                                    AssetImage("assets/images/w2.jpg"),
-                                radius: 40,
-                              ),
-                              Padding(
-                                padding: const EdgeInsetsDirectional.only(
-                                  end: 5,
-                                  bottom: 5,
-                                ),
-                                child: CircleAvatar(
-                                  radius: 8,
-                                  backgroundColor: Colors.green,
-                                ),
-                              ),
-                            ],
-                          ),
-                          SizedBox(width: 10),
-                          SizedBox(
-                            height: 90,
-                            child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Row(
-                                    children: [
-                                      Text(
-                                        "not real preson",
-                                        style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 27,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                      SizedBox(width: 5),
-                                      Icon(
-                                        Icons.circle,
-                                        color: Colors.blue,
-                                        size: 15,
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    width: 210,
-                                    child: Text(
-                                      "please send me a message, im not very active",
-                                      softWrap: true,
-                                      style: TextStyle(
-                                          color: Colors.grey, fontSize: 16),
-                                    ),
-                                  )
-                                ]),
-                          ),
-                          SizedBox(width: 10),
-                          SizedBox(
-                            height: 90,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                SizedBox(height: 30),
-                                Text(
-                                  "08:00 am",
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ],
-                            ),
-                          )
-                        ]),
-                  ),
-                  Container(
-                    margin: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                    child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Stack(
-                            alignment: AlignmentDirectional.bottomEnd,
-                            children: [
-                              CircleAvatar(
-                                backgroundImage:
-                                    AssetImage("assets/images/w2.jpg"),
-                                radius: 40,
-                              ),
-                              Padding(
-                                padding: const EdgeInsetsDirectional.only(
-                                  end: 5,
-                                  bottom: 5,
-                                ),
-                                child: CircleAvatar(
-                                  radius: 8,
-                                  backgroundColor: Colors.green,
-                                ),
-                              ),
-                            ],
-                          ),
-                          SizedBox(width: 10),
-                          SizedBox(
-                            height: 90,
-                            child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Row(
-                                    children: [
-                                      Text(
-                                        "not real preson",
-                                        style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 27,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                      SizedBox(width: 5),
-                                      Icon(
-                                        Icons.circle,
-                                        color: Colors.blue,
-                                        size: 15,
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    width: 210,
-                                    child: Text(
-                                      "please send me a message, im not very active",
-                                      softWrap: true,
-                                      style: TextStyle(
-                                          color: Colors.grey, fontSize: 16),
-                                    ),
-                                  )
-                                ]),
-                          ),
-                          SizedBox(width: 10),
-                          SizedBox(
-                            height: 90,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                SizedBox(height: 30),
-                                Text(
-                                  "08:00 am",
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ],
-                            ),
-                          )
-                        ]),
-                  ),
-                  Container(
-                    margin: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                    child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Stack(
-                            alignment: AlignmentDirectional.bottomEnd,
-                            children: [
-                              CircleAvatar(
-                                backgroundImage:
-                                    AssetImage("assets/images/w2.jpg"),
-                                radius: 40,
-                              ),
-                              Padding(
-                                padding: const EdgeInsetsDirectional.only(
-                                  end: 5,
-                                  bottom: 5,
-                                ),
-                                child: CircleAvatar(
-                                  radius: 8,
-                                  backgroundColor: Colors.green,
-                                ),
-                              ),
-                            ],
-                          ),
-                          SizedBox(width: 10),
-                          SizedBox(
-                            height: 90,
-                            child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Row(
-                                    children: [
-                                      Text(
-                                        "not real preson",
-                                        style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 27,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                      SizedBox(width: 5),
-                                      Icon(
-                                        Icons.circle,
-                                        color: Colors.blue,
-                                        size: 15,
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    width: 210,
-                                    child: Text(
-                                      "please send me a message, im not very active",
-                                      softWrap: true,
-                                      style: TextStyle(
-                                          color: Colors.grey, fontSize: 16),
-                                    ),
-                                  )
-                                ]),
-                          ),
-                          SizedBox(width: 10),
-                          SizedBox(
-                            height: 90,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                SizedBox(height: 30),
-                                Text(
-                                  "08:00 am",
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ],
-                            ),
-                          )
-                        ]),
-                  ),
-                  Container(
-                    margin: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                    child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Stack(
-                            alignment: AlignmentDirectional.bottomEnd,
-                            children: [
-                              CircleAvatar(
-                                backgroundImage:
-                                    AssetImage("assets/images/w2.jpg"),
-                                radius: 40,
-                              ),
-                              Padding(
-                                padding: const EdgeInsetsDirectional.only(
-                                  end: 5,
-                                  bottom: 5,
-                                ),
-                                child: CircleAvatar(
-                                  radius: 8,
-                                  backgroundColor: Colors.green,
-                                ),
-                              ),
-                            ],
-                          ),
-                          SizedBox(width: 10),
-                          SizedBox(
-                            height: 90,
-                            child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Row(
-                                    children: [
-                                      Text(
-                                        "not real preson",
-                                        style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 27,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                      SizedBox(width: 5),
-                                      Icon(
-                                        Icons.circle,
-                                        color: Colors.blue,
-                                        size: 15,
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    width: 210,
-                                    child: Text(
-                                      "please send me a message, im not very active",
-                                      softWrap: true,
-                                      style: TextStyle(
-                                          color: Colors.grey, fontSize: 16),
-                                    ),
-                                  )
-                                ]),
-                          ),
-                          SizedBox(width: 10),
-                          SizedBox(
-                            height: 90,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                SizedBox(height: 30),
-                                Text(
-                                  "08:00 am",
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ],
-                            ),
-                          )
-                        ]),
-                  ),
-                  Container(
-                    margin: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                    child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Stack(
-                            alignment: AlignmentDirectional.bottomEnd,
-                            children: [
-                              CircleAvatar(
-                                backgroundImage:
-                                    AssetImage("assets/images/w2.jpg"),
-                                radius: 40,
-                              ),
-                              Padding(
-                                padding: const EdgeInsetsDirectional.only(
-                                  end: 5,
-                                  bottom: 5,
-                                ),
-                                child: CircleAvatar(
-                                  radius: 8,
-                                  backgroundColor: Colors.green,
-                                ),
-                              ),
-                            ],
-                          ),
-                          SizedBox(width: 10),
-                          SizedBox(
-                            height: 90,
-                            child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Row(
-                                    children: [
-                                      Text(
-                                        "not real preson",
-                                        style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 27,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                      SizedBox(width: 5),
-                                      Icon(
-                                        Icons.circle,
-                                        color: Colors.blue,
-                                        size: 15,
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    width: 210,
-                                    child: Text(
-                                      "please send me a message, im not very active",
-                                      softWrap: true,
-                                      style: TextStyle(
-                                          color: Colors.grey, fontSize: 16),
-                                    ),
-                                  )
-                                ]),
-                          ),
-                          SizedBox(width: 10),
-                          SizedBox(
-                            height: 90,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                SizedBox(height: 30),
-                                Text(
-                                  "08:00 am",
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ],
-                            ),
-                          )
-                        ]),
-                  ),
-                  Container(
-                    margin: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                    child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Stack(
-                            alignment: AlignmentDirectional.bottomEnd,
-                            children: [
-                              CircleAvatar(
-                                backgroundImage:
-                                    AssetImage("assets/images/w2.jpg"),
-                                radius: 40,
-                              ),
-                              Padding(
-                                padding: const EdgeInsetsDirectional.only(
-                                  end: 5,
-                                  bottom: 5,
-                                ),
-                                child: CircleAvatar(
-                                  radius: 8,
-                                  backgroundColor: Colors.green,
-                                ),
-                              ),
-                            ],
-                          ),
-                          SizedBox(width: 10),
-                          SizedBox(
-                            height: 90,
-                            child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Row(
-                                    children: [
-                                      Text(
-                                        "not real preson",
-                                        style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 27,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                      SizedBox(width: 5),
-                                      Icon(
-                                        Icons.circle,
-                                        color: Colors.blue,
-                                        size: 15,
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    width: 210,
-                                    child: Text(
-                                      "please send me a message, im not very active",
-                                      softWrap: true,
-                                      style: TextStyle(
-                                          color: Colors.grey, fontSize: 16),
-                                    ),
-                                  )
-                                ]),
-                          ),
-                          SizedBox(width: 10),
-                          SizedBox(
-                            height: 90,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                SizedBox(height: 30),
-                                Text(
-                                  "08:00 am",
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ],
-                            ),
-                          )
-                        ]),
-                  ),
-                  Container(
-                    margin: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                    child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Stack(
-                            alignment: AlignmentDirectional.bottomEnd,
-                            children: [
-                              CircleAvatar(
-                                backgroundImage:
-                                    AssetImage("assets/images/w2.jpg"),
-                                radius: 40,
-                              ),
-                              Padding(
-                                padding: const EdgeInsetsDirectional.only(
-                                  end: 5,
-                                  bottom: 5,
-                                ),
-                                child: CircleAvatar(
-                                  radius: 8,
-                                  backgroundColor: Colors.green,
-                                ),
-                              ),
-                            ],
-                          ),
-                          SizedBox(width: 10),
-                          SizedBox(
-                            height: 90,
-                            child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Row(
-                                    children: [
-                                      Text(
-                                        "not real preson",
-                                        style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 27,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                      SizedBox(width: 5),
-                                      Icon(
-                                        Icons.circle,
-                                        color: Colors.blue,
-                                        size: 15,
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    width: 210,
-                                    child: Text(
-                                      "please send me a message, im not very active",
-                                      softWrap: true,
-                                      style: TextStyle(
-                                          color: Colors.grey, fontSize: 16),
-                                    ),
-                                  )
-                                ]),
-                          ),
-                          SizedBox(width: 10),
-                          SizedBox(
-                            height: 90,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                SizedBox(height: 30),
-                                Text(
-                                  "08:00 am",
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ],
-                            ),
-                          )
-                        ]),
-                  ),
-                  Container(
-                    margin: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                    child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Stack(
-                            alignment: AlignmentDirectional.bottomEnd,
-                            children: [
-                              CircleAvatar(
-                                backgroundImage:
-                                    AssetImage("assets/images/w2.jpg"),
-                                radius: 40,
-                              ),
-                              Padding(
-                                padding: const EdgeInsetsDirectional.only(
-                                  end: 5,
-                                  bottom: 5,
-                                ),
-                                child: CircleAvatar(
-                                  radius: 8,
-                                  backgroundColor: Colors.green,
-                                ),
-                              ),
-                            ],
-                          ),
-                          SizedBox(width: 10),
-                          SizedBox(
-                            height: 90,
-                            child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Row(
-                                    children: [
-                                      Text(
-                                        "not real preson",
-                                        style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 27,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                      SizedBox(width: 5),
-                                      Icon(
-                                        Icons.circle,
-                                        color: Colors.blue,
-                                        size: 15,
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    width: 210,
-                                    child: Text(
-                                      "please send me a message, im not very active",
-                                      softWrap: true,
-                                      style: TextStyle(
-                                          color: Colors.grey, fontSize: 16),
-                                    ),
-                                  )
-                                ]),
-                          ),
-                          SizedBox(width: 10),
-                          SizedBox(
-                            height: 90,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                SizedBox(height: 30),
-                                Text(
-                                  "08:00 am",
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ],
-                            ),
-                          )
-                        ]),
-                  ),
-                ])),
+          SizedBox(width: 10),
+          SizedBox(
+            height: 90,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(height: 30),
+                Text(
+                  "08:00 am",
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold),
+                ),
+              ],
+            ),
           )
-        ]));
-  }
+        ]),
+      );
+  Widget buildStoryItem() => SizedBox(
+      width: 70,
+      child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
+        Stack(
+          alignment: AlignmentDirectional.bottomEnd,
+          children: [
+            CircleAvatar(
+              backgroundImage: AssetImage("assets/images/w2.jpg"),
+              radius: 35,
+            ),
+            Padding(
+              padding: const EdgeInsetsDirectional.only(
+                end: 5,
+                bottom: 5,
+              ),
+              child: CircleAvatar(
+                radius: 8,
+                backgroundColor: Colors.green,
+              ),
+            ),
+          ],
+        ),
+        SizedBox(height: 5),
+        Text("not real preson",
+            textAlign: TextAlign.center,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(
+              height: 1,
+              color: Colors.black,
+              fontSize: 18,
+            ))
+      ]));
 }
